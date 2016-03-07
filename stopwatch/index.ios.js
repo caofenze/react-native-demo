@@ -6,7 +6,8 @@ var {
   View,
   AppRegistry,
   TouchableHighlight,
-  StyleSheet
+  StyleSheet,
+  ScrollView
 } = React;
 
 var StopWatch = React.createClass({
@@ -32,21 +33,21 @@ var StopWatch = React.createClass({
           </View>
         </View>
         <View style={[styles.footer, this.border('blue')]}>
-          {this.laps()}
+          <ScrollView>{this.laps()}</ScrollView>
         </View>
       </View>
   },
   laps : function(){
 
     return this.state.laps.map(function(time, index){
-      return <View style={styles.lap}>
-        <Text style={styles.lapText}>
-          Lap #{index + 1}
-        </Text>
-        <Text style={styles.lapText}>
-          {formatTime(time)}
-        </Text>
-      </View>
+      return <View style={styles.lap} key={index}>
+          <Text style={styles.lapText}>
+            Lap #{index + 1}
+          </Text>
+          <Text style={styles.lapText}>
+            {formatTime(time)}
+          </Text>
+        </View>
     });
   },
   startStopButton : function(){

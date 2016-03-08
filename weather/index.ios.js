@@ -35,6 +35,7 @@ var Weather = React.createClass({
         <Text style={styles.text}>{this.state.city}</Text>
         <Text style={styles.text}>{this.state.temperature}</Text>
         <Text style={styles.text}>{this.state.description}</Text>
+        <Text style={styles.text}>定位？</Text>
       </View>
     </View>
   },
